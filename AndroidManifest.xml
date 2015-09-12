@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="de.cweiske.ouya.gamelauncher"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="16"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:label="FIXME_GAMETITLE">
+        <activity android:name=".LaunchGameActivity"
+                  android:label="FIXME_GAMETITLE"
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="tv.ouya.intent.category.GAME"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".GameActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+    </application>
+</manifest>
