@@ -26,4 +26,4 @@ with the Android Developer Tools Eclipse IDE, or via command line::
 
   $ ant release
 
-The generated ``.apkg`` file will be located in the ``bin/`` folder.
+The generated ``.apk`` file will be located in the ``bin/`` folder.
