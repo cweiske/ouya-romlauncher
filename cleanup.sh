@@ -2,10 +2,9 @@
 set -e
 
 #clean up from last run
-git checkout AndroidManifest.xml res/drawable-xhdpi/ouya_icon.png
-for i in `ls assets/game`; do
-    rm assets/game/$i
-done
+git checkout AndroidManifest.xml build.xml res/drawable-xhdpi/ouya_icon.png
+
+[ -d assets/game ] && rm -r assets/game
 [ -d bin ] && rm -r bin
 [ -d gen ] && rm -r gen
 [ -d src/romlauncher ] && rm -r src/romlauncher

@@ -5,7 +5,7 @@ set -e
 ./cleanup.sh
 
 if [ $# -lt 3 ]; then
-    echo "Usage: ./prepare-game.sh title java.package path-to-game.smc"
+    echo "Usage: ./prepare-game.sh title java.package path-to-game.smc [cover.png]"
     exit
 fi
 
@@ -21,11 +21,17 @@ echo "Game file: $filename"
 
 #prepare manifest
 sed -i\
+ -e "s/FIXME_PACKAGE/$package/" \
+ build.xml
+
+#prepare build file
+sed -i\
  -e "s/FIXME_PACKAGE/$fullpackage/" \
  -e "s/FIXME_TITLE/$title/" \
  AndroidManifest.xml
 
 #copy game
+mkdir -p assets/game
 cp "$filepath" assets/game/
 
 #prepare launcher
@@ -35,5 +41,12 @@ sed -e "s/FIXME_PACKAGE/$fullpackage/"\
  LaunchRomActivity.java.tpl\
  > src/romlauncher/$package/LaunchRomActivity.java
 
+if [ $# -gt 3 ]; then
+    image=$4
+    cp "$image" res/drawable-xhdpi/ouya_icon.png
+    echo "Image copied"
+else
+    echo "Put a 732x412 image into res/drawable-xhdpi/ouya_icon.png"
+fi
+
 echo "All prepared."
-echo "Put a 732x412 image into res/drawable-xhdpi/ouya_icon.png"

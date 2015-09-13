@@ -22,6 +22,8 @@ Run ``prepare-game.sh``::
   Put a 732x412 image into res/drawable-xhdpi/ouya_icon.png
 
 Now adjust the launcher image ``ouya_icon.png`` and build/run it
-with the Android Developer Tools Eclipse IDE.
+with the Android Developer Tools Eclipse IDE, or via command line::
+
+  $ ant release
 
 The generated ``.apkg`` file will be located in the ``bin/`` folder.
